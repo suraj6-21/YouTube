@@ -15,6 +15,11 @@ This is the backend for a YouTube-like application. It is built using Node.js, E
 
 
 
+
+
+Model Links :
+https://app.eraser.io/workspace/YtPqZ1VogxGy1jzIDkzj
+
 ## License
 
 This project is licensed under the ISC License.
