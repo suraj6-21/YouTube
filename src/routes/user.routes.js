@@ -1,11 +1,12 @@
 import { Router } from "express";
-import { registerUser } from '../controllers/user.controller.js'
+import { loginUser, logoutUser, registerUser } from '../controllers/user.controller.js'
 import { upload } from "../middleware/multer.middleware.js";
+import { verifyJWT } from "../middleware/auth.middleware.js";
 
 const router = Router()
 
 // Middleware runs first, then controller
-router.post("/register",
+router.route("/register").post(
     upload.fields([
         {
             name: "avatar",
@@ -17,7 +18,12 @@ router.post("/register",
         }
     ]),
     registerUser
-);
+)
+
+router.route("/login").post(loginUser)
+
+// Secure Route
+router.route("/logout").post(verifyJWT, logoutUser)
 
 
 
